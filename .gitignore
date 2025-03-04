@@ -36,10 +36,6 @@ pino-log*
 .sublime-workspace
 
 # Testing
-coverage/
-.nyc_output/
-*.test.js
-*.test.ts
 
 # Temporary files
 tmp/
