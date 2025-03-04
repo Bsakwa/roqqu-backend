@@ -1,0 +1,56 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Create .env file
+      run: |
+        echo "PORT=3000" > .env
+        echo "NODE_ENV=test" >> .env
+        echo "DATABASE_URL=sqlite:./test.sqlite" >> .env
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run database migrations
+      run: npm run migrate
+
+    - name: Run database seeds
+      run: npm run seed
+
+    - name: Build TypeScript code
+      run: npm run build
+
+    - name: Run tests
+      run: npm test
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        fail_ci_if_error: true
+
+  deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
