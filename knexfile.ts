@@ -38,7 +38,7 @@ const config: Config = {
   production: {
     client: 'sqlite3',
     connection: {
-      filename: path.join(__dirname, 'db.sqlite'),
+      filename: process.env.DATABASE_PATH || path.join(__dirname, 'db.sqlite'),
     },
     migrations: {
       directory: path.join(__dirname, 'src/db/migrations'),
