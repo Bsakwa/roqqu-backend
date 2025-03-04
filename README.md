@@ -51,8 +51,8 @@ A complete RESTful API for managing users, addresses, and posts built with Node.
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/user-management-system.git
-cd user-management-system
+git clone https://github.com/Bsakwa/roqqu-backend
+cd roqqu-backend
 ```
 
 2. Install dependencies
@@ -92,7 +92,7 @@ npm start
 
 ### Running Tests
 ```bash
-npm test
+npm run test
 ```
 
 ## Project Structure
@@ -372,4 +372,4 @@ MIT
 
 ## Author
 
-Your Name
+Brian Sakwa
