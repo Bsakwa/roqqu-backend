@@ -1,43 +1,50 @@
 import path from 'path';
 import dotenv from 'dotenv';
+import type { Knex } from 'knex';
 
 dotenv.config();
 
-module.exports = {
+interface Config {
+  [key: string]: Knex.Config;
+}
+
+const config: Config = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: path.join(__dirname, 'db.sqlite')
+      filename: path.join(__dirname, 'db.sqlite'),
     },
     migrations: {
-      directory: path.join(__dirname, 'src/db/migrations')
+      directory: path.join(__dirname, 'src/db/migrations'),
     },
     seeds: {
-      directory: path.join(__dirname, 'src/db/seeds')
+      directory: path.join(__dirname, 'src/db/seeds'),
     },
-    useNullAsDefault: true
+    useNullAsDefault: true,
   },
   test: {
     client: 'sqlite3',
     connection: {
-      filename: ':memory:'
+      filename: ':memory:',
     },
     migrations: {
-      directory: path.join(__dirname, 'src/db/migrations')
+      directory: path.join(__dirname, 'src/db/migrations'),
     },
     seeds: {
-      directory: path.join(__dirname, 'src/db/seeds')
+      directory: path.join(__dirname, 'src/db/seeds'),
     },
-    useNullAsDefault: true
+    useNullAsDefault: true,
   },
   production: {
     client: 'sqlite3',
     connection: {
-      filename: path.join(__dirname, 'db.sqlite')
+      filename: path.join(__dirname, 'db.sqlite'),
     },
     migrations: {
-      directory: path.join(__dirname, 'src/db/migrations')
+      directory: path.join(__dirname, 'src/db/migrations'),
     },
-    useNullAsDefault: true
-  }
+    useNullAsDefault: true,
+  },
 };
+
+export default config;
