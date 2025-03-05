@@ -131,6 +131,7 @@ user-management-system/
 ```
 NODE_ENV=production
 PORT=8080
+DATABASE_PATH=./dist/db.sqlite
 ```
 
 2. Build the application
