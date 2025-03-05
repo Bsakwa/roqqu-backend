@@ -2,6 +2,8 @@
 
 A complete RESTful API for managing users, addresses, and posts built with Node.js, TypeScript, and SQLite.
 
+[![API Documentation](public/postman.png)](https://documenter.getpostman.com/view/32091073/2sAYdkGouk)
+
 ## Features
 
 - User management (create, retrieve, count)
