@@ -2,7 +2,7 @@
 
 A complete RESTful API for managing users, addresses, and posts built with Node.js, TypeScript, and SQLite.
 
-[![API Documentation](public/postman.png "Click to View API Documentation")](https://documenter.getpostman.com/view/32091073/2sAYdkGouk)
+[![API Documentation](public/postman.png "Click to View API Documentation")](https://documenter.getpostman.com/view/32091073/2sAYdkH91a)
 
 > 📘 **Documentation Access:** Click the image to view the complete Postman API documentation
 
